@@ -11,7 +11,7 @@ ___
 
 Refer to the following two files (in the main directory) for execution and results of this simulation.
 
-1. `Run.R`: Source the functions in `R`, and run the simulation.
+1. `Run.R`: Source the functions in the `R` folder (package `NFLSim`), and run the simulation.
 
 2. `Example_Plot.png`: An example of how simulation results are displayed upon completion of the function (the provided plot gives probabilities going into week 12 of the 2018 NFL season).
 
@@ -20,7 +20,7 @@ Refer to the following two files (in the main directory) for execution and resul
 
 ___
 
-Refer to the six scripts in the `R` folder for the functions required to execute the simulation (sorted below in order of simulation steps).
+Refer to the six scripts in the `R` folder for the functions required to execute the simulation (sorted below in order of simulation steps). These are organized as the package `NFLSim` in this project.
 
 1. `01_Initialize_Glicko.R`: Based on a user specified start year, obtain the Glicko ratings for all 32 current NFL teams at the end of the previous NFL season (the completed part of the current season is added with a separate function).
 
