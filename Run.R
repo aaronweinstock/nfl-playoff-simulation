@@ -13,11 +13,13 @@ devtools::load_all()
 ?NFL_Playoff_Probabilities
 
 # Execute the simulation
-playoff_probs = NFL_Playoff_Probabilities(initialization_start = 2017,
+# Example below is for probabilities going into week 12 of 2018,
+# based on ratings derived over the modern NFL era
+playoff_probs = NFL_Playoff_Probabilities(initialization_start = 1970,
                                           season_to_sim = 2018,
                                           week_from = 12,
                                           cval = 40.29,
-                                          nsim = 50,
+                                          nsim = 10000,
                                           updates = TRUE,
                                           plot = TRUE)
 # Observe results in table format
