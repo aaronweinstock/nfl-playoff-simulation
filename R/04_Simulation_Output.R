@@ -49,7 +49,8 @@ plot_sim_results = function(simodds){
   oddsplot$conf = NA
   oddsplot$conf[oddsplot$team %in% cf[[1]]] = "AFC"
   oddsplot$conf[oddsplot$team %in% cf[[2]]] = "NFC"
-  oddsplot$lab = paste(format(oddsplot$odds*100, nsmall=1), "%", sep="")
+  oddsplot$lab = paste(round(oddsplot$odds*100, 1), "%", sep="")
+  oddsplot$lab[round(oddsplot$odds*100, 1)%%1 == 0] = paste(round(oddsplot$odds[round(oddsplot$odds*100, 1)%%1 == 0]*100), ".0%", sep="")
   oddsplot$lab[oddsplot$odds > 0.999] = "> 99.9%"
   oddsplot$lab[oddsplot$odds < 0.001] = "< 0.1%"
   
