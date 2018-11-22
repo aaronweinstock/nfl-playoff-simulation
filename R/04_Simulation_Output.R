@@ -20,7 +20,6 @@ probabilities = function(list_of_playoff_teams, current_teams, n_sim){
   # Re-format the percentages for nicer reporting, ultimate plotting
   prob_table = data.frame(do.call(rbind, chances))
   names(prob_table) = c("team","playoff","division","wildcard")
-  prob_table = prob_table[order(prob_table$playoff, decreasing=T),]
   prob_table$playoff = as.numeric(as.character(prob_table$playoff))
   prob_table$division = as.numeric(as.character(prob_table$division))
   prob_table$wildcard = as.numeric(as.character(prob_table$wildcard))
