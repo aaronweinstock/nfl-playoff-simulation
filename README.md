@@ -30,9 +30,9 @@ ___
 
 Refer to the two documents in `Details_on_Glicko_Use` for details on why and how the Glicko rating system is applied to this simulation process.
 
-1. `01_Using_Glicko.pdf`: Describes on the use of the Glicko rating system for this simulation, including brief description of the system, equation for win probability, reasons for applying it to an NFL season simulation, and requisite data for use.
+1. `01_Using_Glicko.pdf`: Describes the use of the Glicko rating system for this simulation, including brief description of the system, equation for win probability, reasons for applying it to an NFL season simulation, and requisite data for use.
 
-2. `02_Selecting_Default_C.pdf`: Describes on the logic behind the default $c$ value for the Glicko rating algorithm provided in the simulation functions.
+2. `02_Selecting_Default_C.pdf`: Describes the logic behind the default *c* value for the Glicko rating algorithm provided in the simulation functions.
 
 
 ### **Simulation Output**
