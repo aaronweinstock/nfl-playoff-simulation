@@ -32,7 +32,7 @@ Refer to the two documents in `Details_on_Glicko_Use` for details on why and how
 
 1. `01_Using_Glicko.pdf`: Describes on the use of the Glicko rating system for this simulation, including brief description of the system, equation for win probability, reasons for applying it to an NFL season simulation, and requisite data for use.
 
-2. `02_Selecting_Default_C.pdf`: Describes on the logic behind the default \(c\) value for the Glicko rating algorithm provided in the simulation functions.
+2. `02_Selecting_Default_C.pdf`: Describes on the logic behind the default $c$ value for the Glicko rating algorithm provided in the simulation functions.
 
 
 ### **Simulation Output**
@@ -43,5 +43,5 @@ Refer to the following two files (in the main directory) for execution and resul
 
 1. `Run.R`: Source the functions in `R`, and run the simulation.
 
-2. `Example_Plot.png`: An example of how simulation results are displayed upon completion of the function (the provided plot gives probabilities after week 12 of the 2018 NFL season).
+2. `Example_Plot.png`: An example of how simulation results are displayed upon completion of the function (the provided plot gives probabilities going into week 12 of the 2018 NFL season).
 
