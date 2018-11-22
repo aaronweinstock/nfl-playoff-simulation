@@ -9,7 +9,7 @@ Below, brief descriptions of the files in this repository are provided.
 
 ___
 
-Refer to the six scripts in the `R/` folder for the functions required to execute the simulation (sorted below in order of simulation steps).
+Refer to the six scripts in the `R` folder for the functions required to execute the simulation (sorted below in order of simulation steps).
 
 1. `01_Initialize_Glicko.R`: Based on a user specified start year, obtain the Glicko ratings for all 32 current NFL teams at the end of the previous NFL season (the completed part of the current season is added with a separate function).
 
@@ -28,7 +28,7 @@ Refer to the six scripts in the `R/` folder for the functions required to execut
 
 ___
 
-Refer to the two documents in `Details_on_Glicko_Use/` for details on why and how the Glicko rating system is applied to this simulation process.
+Refer to the two documents in `Details_on_Glicko_Use` for details on why and how the Glicko rating system is applied to this simulation process.
 
 1. `01_Using_Glicko.pdf`: Describes on the use of the Glicko rating system for this simulation, including brief description of the system, equation for win probability, reasons for applying it to an NFL season simulation, and requisite data for use.
 
@@ -41,7 +41,7 @@ ___
 
 Refer to the following two files (in the main directory) for execution and results of this simulation.
 
-1. `Run.R`: Source the functions in `R/`, and run the simulation.
+1. `Run.R`: Source the functions in `R`, and run the simulation.
 
 2. `Example_Plot.png`: An example of how simulation results are displayed upon completion of the function (the provided plot gives probabilities after week 12 of the 2018 NFL season).
 
