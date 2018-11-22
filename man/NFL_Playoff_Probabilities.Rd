@@ -5,7 +5,7 @@
 \title{Obtain simulated NFL playoff probabilities}
 \usage{
 NFL_Playoff_Probabilities(initialization_start, season_to_sim, week_from,
-  cval = 40.29, nsim = 1000, updates = TRUE, plot = TRUE)
+  cval = 40.29, nsim = 10000, updates = TRUE, plot = TRUE)
 }
 \arguments{
 \item{initialization_start}{Numeric, the system start year for calculating NFL teams' Glicko ratings. Must be greater than or equal to 1922, due to data availability on Pro-Football-Reference. See notes for selection guidelines}
@@ -16,7 +16,7 @@ NFL_Playoff_Probabilities(initialization_start, season_to_sim, week_from,
 
 \item{cval}{Numeric, c-value to be used for Glicko rating algorithm. Default is \code{40.29}}
 
-\item{nsim}{Numeric, the number of simulated seasons to produce. Default is \code{1000}}
+\item{nsim}{Numeric, the number of simulated seasons to produce. Default is \code{10000}}
 
 \item{updates}{Logical, should progress updates be printed as the process runs? Default is \code{TRUE}}
 
