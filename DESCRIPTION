@@ -1,0 +1,10 @@
+Package: NFLSim
+Title: Simulate NFL playoff probabilites based on Glicko rating system
+Version: 0.0.0.9000
+Author: Aaron Weinstock [aut, cre],
+Description: Provides the functions necessary to simulate NFL playoff probabilities based on the Glicko rating system. Includes functions to obtain current Glicko ratings based off of a pre-defined past period, initialize and complete a simulation of the remainder of an NFL season, identify playoff teams by appropriately breaking ties for division winners and wild cards, and create appropriate table and plot output of simulated playoff probabilities.
+License: None
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+
