@@ -42,11 +42,16 @@ plot_sim_results = function(simodds){
   oddsplot = data.frame(team=rep(simodds$team, times=3),
                         odds=c(simodds$playoff, simodds$division, simodds$wildcard),
                         type=rep(c("playoff","division","wildcard"),each=32))
-  oddsplot$team = reorder(oddsplot$team, oddsplot$odds)
+  oddsplot$team = factor(oddsplot$team, levels = unique(oddsplot$team[order(oddsplot$odds[oddsplot$type=="playoff"],
+                                                                            oddsplot$odds[oddsplot$type=="division"],
+                                                                            oddsplot$odds[oddsplot$type=="wildcard"])]))
   oddsplot$type = factor(oddsplot$type, levels=c("playoff","division","wildcard"))
   oddsplot$conf = NA
   oddsplot$conf[oddsplot$team %in% cf[[1]]] = "AFC"
   oddsplot$conf[oddsplot$team %in% cf[[2]]] = "NFC"
+  oddsplot$lab = paste(format(oddsplot$odds*100, nsmall=1), "%", sep="")
+  oddsplot$lab[oddsplot$odds > 0.999] = "> 99.9%"
+  oddsplot$lab[oddsplot$odds < 0.001] = "< 0.1%"
   
   # Create the plot; split by conference for more relevant interpretation
   plots_by_conf = lapply(c("AFC","NFC"), function(x){
@@ -54,7 +59,7 @@ plot_sim_results = function(simodds){
       geom_tile(aes(x=type, y=team, fill=odds), 
                 color="white") +
       geom_text(aes(x=type, y=team), 
-                label=scales::percent(round(oddsplot$odds[oddsplot$conf == x],3)),
+                label=oddsplot$lab[oddsplot$conf == x],
                 size = 3) +
       scale_x_discrete(labels = c("Make Playoffs", "Win Division", "Get Wild Card"),
                        name = "",
@@ -62,9 +67,7 @@ plot_sim_results = function(simodds){
                        position = "top") +
       scale_y_discrete(name = "",
                        expand = c(0,0)) +
-      scale_fill_gradient(name = "Probability",
-                          low = "#FFFFFF", high = "#FF0000",
-                          labels = scales::percent) +
+      scale_fill_gradient(low = "#FFFFFF", high = "#FF0000") +
       labs(title = paste(x, "Playoff Odds")) +
       theme(axis.ticks.x = element_blank(),
             axis.ticks.y = element_blank(),
@@ -139,7 +142,7 @@ dependencies = function(){
 #' @param season_to_sim Numeric, the year of the current NFL season
 #' @param week_from Numeric, the NFL week during which a game was most recently completed
 #' @param cval Numeric, c-value to be used for Glicko rating algorithm. Default is \code{40.29}
-#' @param nsim Numeric, the number of simulated seasons to produce. Default is \code{1000}
+#' @param nsim Numeric, the number of simulated seasons to produce. Default is \code{10000}
 #' @param updates Logical, should progress updates be printed as the process runs? Default is \code{TRUE}
 #' @param plot Logical, should a plot of simulated playoff probabilities be produced as part of the process? Default is \code{TRUE}
 #' 
@@ -153,7 +156,7 @@ dependencies = function(){
 #' playoff_probs[playoff_probs$team == "New York Jets",]
 #' 
 #' @seealso Dr. Mark Glickman's description of the Glicko Rating system: \code{http://www.glicko.net/glicko/glicko.pdf}
-NFL_Playoff_Probabilities = function(initialization_start, season_to_sim, week_from, cval=40.29, nsim=1000, updates=TRUE, plot=TRUE){
+NFL_Playoff_Probabilities = function(initialization_start, season_to_sim, week_from, cval=40.29, nsim=10000, updates=TRUE, plot=TRUE){
   # Using all previously written functions, run the entire process
   # Data scrape and setup, then simulate "nsim" number of seasons, then calculate playoff percentages
   # Set "plot=T" to return a plot of the percentages along with a data frame
