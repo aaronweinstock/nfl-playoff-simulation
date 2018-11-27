@@ -134,14 +134,16 @@ dependencies = function(){
 #'
 #'
 #' If an NFL week is only partially complete at the time of simulation, the \code{week_from}
-#' parameter should be the number of that partially completed week. For example,
-#' even if just one game has been completed in week 12 of an NFL season at the time of simulation, 
-#' set \code{week_from=12}. However, if no games have yet been played in week 12 but week 11 has
-#' been completed entirely, set \code{week_from=11}.
+#' parameter should still be the number of that partially completed week. For example, if all
+#' but one game has been completed in week 11, set \code{week_from=11}. If no games have 
+#' yet been played in week 12 but week 11 has been completed entirely, set \code{week_from=12}.
+#' If even just one game has been completed in week 12, set \code{week_from=12}. Simulation will
+#' not overwrite results of partially completed weeks, but instead simulate the games from
+#' that week that have not been completed at the time of simulation. 
 #'
 #' @param initialization_start Numeric, the system start year for calculating NFL teams' Glicko ratings. Must be greater than or equal to 1922, due to data availability on Pro-Football-Reference. See notes for selection guidelines
 #' @param season_to_sim Numeric, the year of the current NFL season
-#' @param week_from Numeric, the NFL week during which a game was most recently completed
+#' @param week_from Numeric, the current NFL_week
 #' @param cval Numeric, c-value to be used for Glicko rating algorithm. Default is \code{40.29}
 #' @param nsim Numeric, the number of simulated seasons to produce. Default is \code{10000}
 #' @param updates Logical, should progress updates be printed as the process runs? Default is \code{TRUE}

@@ -12,7 +12,7 @@ NFL_Playoff_Probabilities(initialization_start, season_to_sim, week_from,
 
 \item{season_to_sim}{Numeric, the year of the current NFL season}
 
-\item{week_from}{Numeric, the NFL week during which a game was most recently completed}
+\item{week_from}{Numeric, the current NFL_week}
 
 \item{cval}{Numeric, c-value to be used for Glicko rating algorithm. Default is \code{40.29}}
 
@@ -48,10 +48,12 @@ selections may include (but are not limited to):
 
 
 If an NFL week is only partially complete at the time of simulation, the \code{week_from}
-parameter should be the number of that partially completed week. For example,
-even if just one game has been completed in week 12 of an NFL season at the time of simulation, 
-set \code{week_from=12}. However, if no games have yet been played in week 12 but week 11 has
-been completed entirely, set \code{week_from=11}.
+parameter should still be the number of that partially completed week. For example, if all
+but one game has been completed in week 11, set \code{week_from=11}. If no games have 
+yet been played in week 12 but week 11 has been completed entirely, set \code{week_from=12}.
+If even just one game has been completed in week 12, set \code{week_from=12}. Simulation will
+not overwrite results of partially completed weeks, but instead simulate the games from
+that week that have not been completed at the time of simulation.
 }
 \examples{
 #playoff probability for the New York Jets after week 11 of the 2018 season
